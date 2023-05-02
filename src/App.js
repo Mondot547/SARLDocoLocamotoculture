@@ -9,12 +9,6 @@ const App = () => {
       <header>
         <Nav />
       </header>
-      <main>
-        main
-      </main>
-      <footer>
-        footer
-      </footer>
     </>
   );
 };
