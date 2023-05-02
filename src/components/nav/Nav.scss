@@ -1,0 +1,28 @@
+$color-nav-link: #E23430;
+$color-nav-bg: #fff;
+$space-nav-link: 2rem;
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-nav-bg;
+
+    .nav-logo {
+        margin-left: $space-nav-link;
+    }
+
+    .nav-group-link {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: $space-nav-link;
+        margin-right: $space-nav-link;
+
+        .nav-link {
+            text-decoration: none;
+            color: $color-nav-link;
+            text-transform: uppercase;
+        }
+    }
+}
