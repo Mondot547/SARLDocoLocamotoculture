@@ -1,0 +1,207 @@
+//Définition des variables
+$nav-bg: #12621C;
+$line-color: #fff;
+$logo-color: #fff;
+$hambox-bg: #023509;
+
+//style de base de la nav
+nav {
+    position: fixed;
+    z-index: 2;
+    background: $nav-bg;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    //Style des éléments de la berre de navigation
+    .navbar {
+        height: 100px;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2em;
+
+
+        //Style du logo de la barre de navigation
+        .nav-logo {
+            position: absolute;
+            text-decoration: none;
+            color: $logo-color;
+            font-weight: bolder;
+            
+        }
+
+
+        //Style du button de menu hamburger
+        .menu-toggle {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+
+
+            //Style de la boite du hamburger
+            .hambox {
+                position: absolute;
+                width: 44px;
+                height: 44px;
+                cursor: pointer;
+                top: -1.5rem;
+                right: 0;
+                border-radius: 50%;
+                transition: 0.3s ease;
+                padding: 0.9em 0.4em;
+
+                &.open {
+                    position: absolute;
+                    right: 0;
+                    top: 5;
+                }
+
+                &:hover {
+                    background: $hambox-bg;
+                }
+
+
+                //Style des lignes du hamburger
+                .lineTop,
+                .lineBottom,
+                .lineMiddle {
+                    margin: 0 auto;
+                    position: absolute;
+                    display: block;
+                    width: 24px;
+                    height: 2px;
+                    border-radius: 10px;
+                    background: $line-color;
+                    left: 0;
+                    right: 0;
+                    transform: rotate(0deg);
+                    transition: all 0.4s;
+                }
+
+                //Style des lignes une fois tourner
+                .lineTop {
+                    top: 1.25rem;
+
+                    &.spin {
+                        top: 1.25em;
+                        transform: rotate(135deg);
+                        color: $line-color;
+                    }
+                }
+
+                .lineMiddle {
+                    &.spin {
+                        display: none;
+                    }
+                }
+
+                .lineBottom {
+                    bottom: 1rem;
+
+                    &.spin {
+                        top: 1.25rem;
+                        transform: rotate(225deg);
+                        color: $line-color;
+                    }
+                }
+            }
+
+            //Style du bouton hamburger lorsqu'il est ouvert
+            .open {
+                background: $hambox-bg;
+            }
+        }
+    }
+
+    //Style de l'overlay
+    .nav-overlay {
+        position: absolute;
+        background: $nav-bg;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+
+        //Style du logo de la barre de navigation lorsqu'il est caché par l'overlay
+        .nav-logo {
+            opacity: 0;
+            
+        }
+
+        //Style du group de link overlay
+        .nav-links-mobile {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            //Style des li overlay
+            .nav-item {
+                display: flex; 
+                flex-direction: column;
+                list-style: none;
+                position: relative;
+                border: 1px solid transparent;
+                padding: 0.5em;
+                margin: 0.5rem;
+
+                &:hover, &:focus-within {
+                    border: 1px solid $line-color;
+                    border-radius: 10px;
+                    transition: all 0.2s ease;
+                }
+
+                //Style des a overlay
+                a {
+                    text-decoration: none;
+                    color: $line-color;
+                    text-transform: uppercase;
+                    font-family: Verdana, Geneva, Tahoma, sans-serif;
+                    font-size: large;
+
+                    &:visited {
+                        color: $line-color;
+                    }
+                }
+            }
+        }
+    }
+
+    //Style de la barre de navigation lorsqu'elle est ouverte
+    &.nav-open {
+        .nav-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        
+            
+        //Style de la boite et des lignes quand l'overlay apparait
+        .hambox .lineTop {
+            transform: rotate(45deg);
+            top: 50%;
+            margin-top: -1px;
+        }
+
+        .hambox .lineMiddle {
+            opacity: 0;
+        }
+
+        .hambox .lineBottom {
+            transform: rotate(-45deg);
+            top: 50%;
+            margin-top: -1px;
+        }
+    }
+}
