@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.js';
 import './Nav.scss';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
 
 
 
@@ -18,17 +18,14 @@ const Nav = () => {
     <nav className={navOpen ? 'nav-open' : ''}>
       <div className="nav-container">
         <div className="navbar">
-          {!navOpen && (
             <div className="nav-logo">
               <p>DOCO Locamotoculture</p>
             </div>
-          )}
+          
           
           <div className="menu-toggle" onClick={toggleNav}>
             <div
-              className={navOpen ? 'hambox open' : 'hambox'}
-              aria-hidden="true"
-            >
+              className="hambox">
               <span className={navOpen ? 'lineTop spin' : 'lineTop'}></span>
               <span
                 className={navOpen ? 'lineMiddle spin' : 'lineMiddle'}
@@ -44,12 +41,12 @@ const Nav = () => {
           onClick={toggleNav}
           style={{
             top: navOpen ? '0' : '-100%',
-            height: navOpen ? '50vh' : '0',
+            height: navOpen ? '35vh' : '0',
           }}
         >
           <ul className="nav-links-mobile">
             <li className="nav-item">
-              <Link to="/home">Acceuil</Link>
+              <Link to="/">Acceuil</Link>
             </li>
             <li className="nav-item">
               <Link to="/products">Nos produits</Link>

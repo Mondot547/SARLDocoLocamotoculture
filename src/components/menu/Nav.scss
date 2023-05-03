@@ -7,7 +7,6 @@ $hambox-bg: #023509;
 //style de base de la nav
 nav {
     position: fixed;
-    z-index: 2;
     background: $nav-bg;
     width: 100%;
     top: 0;
@@ -16,7 +15,6 @@ nav {
     //Style des éléments de la berre de navigation
     .navbar {
         height: 100px;
-        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -25,38 +23,34 @@ nav {
 
         //Style du logo de la barre de navigation
         .nav-logo {
-            position: absolute;
+            width: 100%;
             text-decoration: none;
             color: $logo-color;
             font-weight: bolder;
-            
         }
 
 
         //Style du button de menu hamburger
         .menu-toggle {
-            position: relative;
+            display: flex;
+            flex-direction: row-reverse;
             width: 100%;
             cursor: pointer;
 
 
             //Style de la boite du hamburger
             .hambox {
-                position: absolute;
+                display: flex;
+                flex-direction: column;
+                gap: 0.2rem;
                 width: 44px;
                 height: 44px;
                 cursor: pointer;
-                top: -1.5rem;
                 right: 0;
                 border-radius: 50%;
                 transition: 0.3s ease;
-                padding: 0.9em 0.4em;
-
-                &.open {
-                    position: absolute;
-                    right: 0;
-                    top: 5;
-                }
+                padding-top: 1em;
+                
 
                 &:hover {
                     background: $hambox-bg;
@@ -68,26 +62,23 @@ nav {
                 .lineBottom,
                 .lineMiddle {
                     margin: 0 auto;
-                    position: absolute;
                     display: block;
                     width: 24px;
                     height: 2px;
                     border-radius: 10px;
                     background: $line-color;
-                    left: 0;
-                    right: 0;
                     transform: rotate(0deg);
                     transition: all 0.4s;
                 }
 
                 //Style des lignes une fois tourner
                 .lineTop {
-                    top: 1.25rem;
 
                     &.spin {
-                        top: 1.25em;
+                        margin: 0.2rem 0.6rem;
                         transform: rotate(135deg);
                         color: $line-color;
+                        
                     }
                 }
 
@@ -98,10 +89,9 @@ nav {
                 }
 
                 .lineBottom {
-                    bottom: 1rem;
-
+                
                     &.spin {
-                        top: 1.25rem;
+                        margin: -0.5rem 0.6rem;
                         transform: rotate(225deg);
                         color: $line-color;
                     }
@@ -109,19 +99,13 @@ nav {
             }
 
             //Style du bouton hamburger lorsqu'il est ouvert
-            .open {
-                background: $hambox-bg;
-            }
+            
         }
     }
 
     //Style de l'overlay
     .nav-overlay {
-        position: absolute;
         background: $nav-bg;
-        z-index: -1;
-        top: 0;
-        left: 0;
         width: 100%;
         opacity: 0;
         visibility: hidden;
@@ -129,18 +113,9 @@ nav {
         border-bottom-left-radius: 20px;
         border-bottom-right-radius: 20px;
 
-        //Style du logo de la barre de navigation lorsqu'il est caché par l'overlay
-        .nav-logo {
-            opacity: 0;
-            
-        }
 
         //Style du group de link overlay
         .nav-links-mobile {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -151,7 +126,6 @@ nav {
                 display: flex; 
                 flex-direction: column;
                 list-style: none;
-                position: relative;
                 border: 1px solid transparent;
                 padding: 0.5em;
                 margin: 0.5rem;
@@ -183,6 +157,8 @@ nav {
         .nav-overlay {
             opacity: 1;
             visibility: visible;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
         }
 
         

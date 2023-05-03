@@ -1,12 +1,9 @@
 import React from 'react';
-import Nav from '../components/menu/Nav';
+import './scss/Home.scss';
 
 const Home = () => {
     return (
         <>
-            <header>
-                <Nav />
-            </header>
             <main>
                 <h1>Hello world</h1>
             </main>
