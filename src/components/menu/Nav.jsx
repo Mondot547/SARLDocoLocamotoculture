@@ -18,11 +18,24 @@ const Nav = () => {
     <nav className={navOpen ? 'nav-open' : ''}>
       <div className="nav-container">
         <div className="navbar">
-            <div className="nav-logo">
-              <p>DOCO Locamotoculture</p>
-            </div>
-          
-          
+          <div className="nav-logo">
+            <p>DOCO Locamotoculture</p>
+          </div>
+          <ul className="nav-links-desktop">
+            <li className="nav-item-desktop">
+              <Link to="/">Acceuil</Link>
+            </li>
+            <li className="nav-item-desktop">
+              <Link to="/products">Nos produits</Link>
+            </li>
+            <li className="nav-item-desktop">
+              <Link to="/about">A propos</Link>
+            </li>
+            <li className="nav-item-desktop">
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+
           <div className="menu-toggle" onClick={toggleNav}>
             <div
               className="hambox">

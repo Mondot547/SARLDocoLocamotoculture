@@ -1,3 +1,22 @@
+//definition du breakpoint desktop
+$breakpoint: (
+    desktop: 1100px,
+    mobile: 350px
+);
+
+//creation des mixin
+@mixin mobile {
+    @media srceen and (min-width: map-get($breakpoint, mobile)) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: map-get($breakpoint, desktop)) {
+        @content;
+    }
+}
+
 //Définition des variables
 $nav-bg: #12621C;
 $line-color: #fff;
@@ -6,150 +25,211 @@ $hambox-bg: #023509;
 
 //style de base de la nav
 nav {
-    position: fixed;
+    position: relative;
     background: $nav-bg;
     width: 100%;
     top: 0;
     left: 0;
 
-    //Style des éléments de la berre de navigation
-    .navbar {
-        height: 100px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2em;
+    .nav-container {
 
 
-        //Style du logo de la barre de navigation
-        .nav-logo {
-            width: 100%;
-            text-decoration: none;
-            color: $logo-color;
-            font-weight: bolder;
-        }
 
-
-        //Style du button de menu hamburger
-        .menu-toggle {
+        //Style des éléments de la berre de navigation
+        .navbar {
+            height: 100px;
             display: flex;
-            flex-direction: row-reverse;
-            width: 100%;
-            cursor: pointer;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2em;
 
+            .nav-links-desktop {
 
-            //Style de la boite du hamburger
-            .hambox {
-                display: flex;
-                flex-direction: column;
-                gap: 0.2rem;
-                width: 44px;
-                height: 44px;
-                cursor: pointer;
-                right: 0;
-                border-radius: 50%;
-                transition: 0.3s ease;
-                padding-top: 1em;
-                
+                display: none;
 
-                &:hover {
-                    background: $hambox-bg;
+                @include desktop {
+                    position: relative;
+                    width: 100%;
+                    height: 30px;
+                    display: inline-flex;
+                    justify-content: flex-end;
+                    list-style: none;
+                    gap: 2rem;
                 }
 
+                .nav-item-desktop {
+                    border: 1px solid transparent;
 
-                //Style des lignes du hamburger
-                .lineTop,
-                .lineBottom,
-                .lineMiddle {
-                    margin: 0 auto;
-                    display: block;
-                    width: 24px;
-                    height: 2px;
-                    border-radius: 10px;
-                    background: $line-color;
-                    transform: rotate(0deg);
-                    transition: all 0.4s;
-                }
+                    &:hover {
+                        @include desktop {
+                        position: relative;
+                        border: 1px solid $line-color;
+                        border-radius: 10px;
+                        }
+                    }
 
-                //Style des lignes une fois tourner
-                .lineTop {
-
-                    &.spin {
-                        margin: 0.2rem 0.6rem;
-                        transform: rotate(135deg);
+                    a {
+                        text-decoration: none;
                         color: $line-color;
-                        
+                        margin: 1rem;
+
+                        &:hover {
+                            border: 1px solid $line-color;
+                        }
+                        &:visited {
+                            color: $line-color;
+                        }
                     }
                 }
+            }
 
-                .lineMiddle {
-                    &.spin {
+            //Style du logo de la barre de navigation
+            .nav-logo {
+                width: 100%;
+                text-decoration: none;
+                color: $logo-color;
+                font-weight: bolder;
+            }
+
+
+            //Style du button de menu hamburger
+            .menu-toggle {
+                display: flex;
+                flex-direction: row-reverse;
+                width: 100%;
+                cursor: pointer;
+
+                @include desktop {
+                    display: none;
+                }
+
+
+                //Style de la boite du hamburger
+                .hambox {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.2rem;
+                    width: 44px;
+                    height: 44px;
+                    cursor: pointer;
+                    right: 0;
+                    border-radius: 50%;
+                    transition: 0.3s ease;
+                    padding-top: 1em;
+
+                    @include desktop {
                         display: none;
                     }
-                }
 
-                .lineBottom {
-                
-                    &.spin {
-                        margin: -0.5rem 0.6rem;
-                        transform: rotate(225deg);
-                        color: $line-color;
+
+                    &:hover {
+                        background: $hambox-bg;
+                    }
+
+
+                    //Style des lignes du hamburger
+                    .lineTop,
+                    .lineBottom,
+                    .lineMiddle {
+                        margin: 0 auto;
+                        display: block;
+                        width: 24px;
+                        height: 2px;
+                        border-radius: 10px;
+                        background: $line-color;
+                        transform: rotate(0deg);
+                        transition: all 0.4s;
+                    }
+
+                    //Style des lignes une fois tourner
+                    .lineTop {
+
+                        &.spin {
+                            margin: 0.3rem 0.65rem;
+                            transform: rotate(135deg);
+                            color: $line-color;
+
+                        }
+                    }
+
+                    .lineMiddle {
+                        &.spin {
+                            display: none;
+                        }
+                    }
+
+                    .lineBottom {
+
+                        &.spin {
+                            margin: -0.55rem 0.7rem;
+                            transform: rotate(225deg);
+                            color: $line-color;
+                        }
                     }
                 }
+
+                //Style du bouton hamburger lorsqu'il est ouvert
+
+            }
+        }
+
+        //Style de l'overlay
+        .nav-overlay {
+            position: relative;
+            z-index: 2;
+            top: 30rem;
+            background: $nav-bg;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+
+            @include desktop {
+                display: none;
             }
 
-            //Style du bouton hamburger lorsqu'il est ouvert
-            
-        }
-    }
 
-    //Style de l'overlay
-    .nav-overlay {
-        background: $nav-bg;
-        width: 100%;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 2s cubic-bezier(0.075, 0.82, 0.165, 1);
-        border-bottom-left-radius: 20px;
-        border-bottom-right-radius: 20px;
-
-
-        //Style du group de link overlay
-        .nav-links-mobile {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            //Style des li overlay
-            .nav-item {
-                display: flex; 
+            //Style du group de link overlay
+            .nav-links-mobile {
+                display: flex;
                 flex-direction: column;
-                list-style: none;
-                border: 1px solid transparent;
-                padding: 0.5em;
-                margin: 0.5rem;
+                justify-content: center;
+                align-items: center;
 
-                &:hover, &:focus-within {
-                    border: 1px solid $line-color;
-                    border-radius: 10px;
-                    transition: all 0.2s ease;
-                }
+                //Style des li overlay
+                .nav-item {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: none;
+                    border: 1px solid transparent;
+                    padding: 0.5em;
+                    margin: 0.5rem;
 
-                //Style des a overlay
-                a {
-                    text-decoration: none;
-                    color: $line-color;
-                    text-transform: uppercase;
-                    font-family: Verdana, Geneva, Tahoma, sans-serif;
-                    font-size: large;
+                    &:hover,
+                    &:focus-within {
+                        border: 1px solid $line-color;
+                        border-radius: 10px;
+                        transition: all 0.2s ease;
+                    }
 
-                    &:visited {
+                    //Style des a overlay
+                    a {
+                        text-decoration: none;
                         color: $line-color;
+                        text-transform: uppercase;
+                        font-family: Verdana, Geneva, Tahoma, sans-serif;
+                        font-size: large;
+
+                        &:visited {
+                            color: $line-color;
+                        }
                     }
                 }
             }
         }
+
     }
 
     //Style de la barre de navigation lorsqu'elle est ouverte
@@ -161,13 +241,11 @@ nav {
             border-bottom-right-radius: 20px;
         }
 
-        
-            
+
+
         //Style de la boite et des lignes quand l'overlay apparait
         .hambox .lineTop {
             transform: rotate(45deg);
-            top: 50%;
-            margin-top: -1px;
         }
 
         .hambox .lineMiddle {
@@ -176,8 +254,6 @@ nav {
 
         .hambox .lineBottom {
             transform: rotate(-45deg);
-            top: 50%;
-            margin-top: -1px;
         }
     }
 }

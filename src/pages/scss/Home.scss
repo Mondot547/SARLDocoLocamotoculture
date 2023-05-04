@@ -1,11 +1,20 @@
-main {
+
+header {
+    position: fixed;
     width: 100%;
+}
+
+main {
     position: relative;
+    width: 100%;
+    top: 6.29rem;
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+    background-color: #faedb7;
+    color: #444;
 
     h1 {
-        top: 5rem;
+        text-transform: uppercase;
     }
 }
