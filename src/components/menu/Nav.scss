@@ -58,24 +58,21 @@ nav {
                 }
 
                 .nav-item-desktop {
-                    border: 1px solid transparent;
-
-                    &:hover {
-                        @include desktop {
-                        position: relative;
-                        border: 1px solid $line-color;
-                        border-radius: 10px;
-                        }
-                    }
 
                     a {
                         text-decoration: none;
                         color: $line-color;
-                        margin: 1rem;
+                        margin: 0.5rem;
+                        padding: 0.5em;
+                        border: 1px solid transparent;
 
                         &:hover {
+
                             border: 1px solid $line-color;
+                            border-radius: 10px;    
+                            transition: all 0.5s ease-in-out;                    
                         }
+
                         &:visited {
                             color: $line-color;
                         }

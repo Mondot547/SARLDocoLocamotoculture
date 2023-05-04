@@ -3,10 +3,14 @@ import Nav from '../components/menu/Nav';
 
 const About = () => {
     return (
-        <div>
-            <Nav />
-            About
-        </div>
+        <>
+            <header>
+                <Nav />
+            </header>
+            <main>
+                <h1>hello world</h1>
+            </main>
+        </>
     );
 };
 
