@@ -5,12 +5,8 @@ import Products from './pages/Products';
 import About from './pages/About';
 import Contact from './pages/Contact';
 
-
-
-
 const App = () => {
   return (
-
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,7 +15,6 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </BrowserRouter>
-
   );
 };
 

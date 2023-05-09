@@ -1,11 +1,7 @@
+
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../../App.js';
 import './Nav.scss';
-
-
-
-
 
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Nav from '../components/menu/Nav';
 import './scss/Contact.scss';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -54,6 +55,7 @@ const Contact = () => {
             />
           </div>
           <button type='submit'>Envoyer</button>
+          <Link to="/">Retour à l'acceuil</Link>
         </form>
       </main>
     </>
