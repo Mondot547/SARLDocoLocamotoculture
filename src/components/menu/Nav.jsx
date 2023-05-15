@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
+import logo from '../../img/logo-removebg-preview.png';
 
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -15,7 +16,7 @@ const Nav = () => {
       <div className="nav-container">
         <div className="navbar">
           <div className="nav-logo">
-            <p>DOCO Locamotoculture</p>
+            <img src={logo} alt="" />
           </div>
           <ul className="nav-links-desktop">
             <li className="nav-item-desktop">
@@ -50,7 +51,7 @@ const Nav = () => {
           onClick={toggleNav}
           style={{
             top: navOpen ? '0' : '-100%',
-            height: navOpen ? '35vh' : '0',
+            height: navOpen ? '50vh' : '0',
           }}
         >
           <ul className="nav-links-mobile">

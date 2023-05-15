@@ -1,0 +1,9 @@
+//space
+$space-map: 3rem;
+
+.map {
+    width: 300px;
+    height: 200px;
+    z-index: 22;
+    margin: $space-map auto;
+}

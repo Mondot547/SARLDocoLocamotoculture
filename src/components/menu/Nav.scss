@@ -81,11 +81,9 @@ nav {
             }
 
             //Style du logo de la barre de navigation
-            .nav-logo {
-                width: 100%;
-                text-decoration: none;
-                color: $logo-color;
-                font-weight: bolder;
+            .nav-logo img{
+                width: 150px;
+                height: 65px;
             }
 
 
@@ -164,9 +162,6 @@ nav {
                         }
                     }
                 }
-
-                //Style du bouton hamburger lorsqu'il est ouvert
-
             }
         }
 

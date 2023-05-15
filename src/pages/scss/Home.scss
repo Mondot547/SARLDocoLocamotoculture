@@ -1,3 +1,17 @@
+//variable color
+$day-color: #12621C;
+$bg-color: #faedb7;
+$text-color: #444;
+$space-marging: 3rem;
+$border-color: #444;
+$word-slogan: #F36003;
+$title-color: #E23430;
+
+//size
+$space-line: 2;
+
+
+
 
 header {
     position: fixed;
@@ -8,14 +22,62 @@ main {
     position: relative;
     z-index: -100;
     width: 100%;
-    top: 6.29rem;
+    top: 6rem;
     height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    background-color: #faedb7;
-    color: #444;
+    background-color: $bg-color;
+    color: $text-color;
 
-    h1 {
-        text-transform: uppercase;
+
+    .banner {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        z-index: 0;
+        margin: 0;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h2 {
+            text-align: center;
+            color: $title-color;
+            text-transform: uppercase;
+        }
+
+        .horraires {
+            margin-top: $space-marging;
+
+            .list-days {
+                list-style: none;
+                line-height: $space-line;
+                padding-bottom: $space-marging;
+                border-bottom: 1px solid $border-color;
+
+                .day {
+                    color: $day-color;
+                }
+            }
+        }
+
+        aside {
+            margin-top: $space-marging;
+
+            .slogan {
+                margin-left: 0.5rem;
+                line-height: $space-line;
+
+
+                .firstWord-slogan {
+                    color: $word-slogan;
+                }
+            }
+        }
     }
 }
