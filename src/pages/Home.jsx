@@ -44,26 +44,31 @@ const Home = () => {
                 <section className="info">
                     <Map />
                     <div className="info-group">
-                        <div className="contact">
-                            <h3><img src={contact} alt="icon de contact" /> Contact</h3>
-                            <p>TEL: 03 22 92 84 79</p>
-                            <p>EMAIL: sarl.locamotoculture@orange.fr</p>
-                        </div>
                         <div className="itinerary">
                             <h3><img src={itinary} alt="icon d'itineraire" /> Itiniraire</h3>
                             <p>4 Rue Barbier, 80000, Amiens</p>
                             <div className="btn-itinary"><a href="#">Où aller ?</a></div>
                         </div>
-                        <div className="means-payment">
-                            <h3>Moyens de paiements</h3>
-                            <div className="icon-payment">
-                                <img src={bancaire} alt="icon de carte bancaire" />
-                            </div>
+                        <div className="contact">
+                            <h3><img src={contact} alt="icon de contact" /> Contact</h3>
+                            <p>TEL: 03 22 92 84 79</p>
+                            <p>EMAIL: sarl.locamotoculture@orange.fr</p>
                         </div>
+
                     </div>
 
                 </section>
             </main >
+            <footer>
+                <div className="footer">
+                    <div className="means-payment">
+                        <h3>Moyens de paiements</h3>
+                        <div className="icon-payment">
+                            <img src={bancaire} alt="icon de carte bancaire" />
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </>
     );
 };

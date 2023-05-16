@@ -16,7 +16,7 @@ const icon = L.icon({
 
 const Map = () => {
     return (
-        <MapContainer className="map" center={[49.89475136004356, 2.2813296681497013]} zoom={13}>
+        <MapContainer className="map" center={[49.89475136004356, 2.2813296681497013]} zoom={50}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution="Map data &copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors"
